@@ -18,8 +18,9 @@
 
 6] migrate database changes
  - go to directory : /todo_list_task/todo_task/ where manage.py file is present
+ 
  > python manage.py makemigrations
- > ython manage.py migrate
+ > python manage.py migrate
 
 7] Run the project
  > python manage.py runserver

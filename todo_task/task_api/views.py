@@ -43,3 +43,19 @@ class TaskAPI(APIView):
         except Exception as e:
             context = {'resp' : 'Invalid task id.','is_deleted':False} # Error Response - if task_id is invalid
         return Response(context)
+
+
+
+
+
+
+class TaskAPI2(APIView): # for test PR
+    def post(self,request): # Create new task
+        serializer = TaskSerializer(data=request.data) # serialize data
+        if serializer.is_valid():
+            serializer.save()
+            context = {'resp' : 'Tast added successfully..!','acc_created' : True} # Successful response
+        else:
+            context = {'resp' : 'Invalid data.','acc_created' : False} # Error response
+            print(serializer.errors)
+        return Response(context)
